@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
+import { Button } from "../../components/Button";
 
 const MclarenImg = require("../../../images/mclaren-orange-big.png")
 const BlobImg = require("../../../images/blobpic.png")
@@ -52,8 +53,8 @@ const Description = styled.p`
     max-h-12`}`
 
 const BlobContainer = styled.div`
-  width: 20em;
-  height: 10em;
+  width: 40em;
+  height: 25em;
   position: absolute:
   right: -5em;
   top: -9em;
@@ -61,14 +62,13 @@ const BlobContainer = styled.div`
   transform: rotate(-30deg);
   
   img {
-    width: 100%;
-    height: auto;
-    max-height: max-content;
+    width: 100em;
+    height: 20em;
   }`
 
 const StandaloneCar = styled.div`
-  width: auto;
-  height: 10em;
+  
+  height: 17em;
   right: -6em;
   top: -5em;
   position: absolute;
@@ -88,6 +88,10 @@ export function TopSection() {
       <Description>
         Always choose the best car from our local stores and order remotely
       </Description>
+      <div className="flex w-full">
+      <Button text="Rent Your Car Now" theme="filled"/>
+      <Button text="Sell Your Car Now" theme="outlined"/>
+      </div>
     </LeftContainer>
     <RightContainer>
       <BlobContainer>

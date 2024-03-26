@@ -1,4 +1,5 @@
 import React from "react";
+import { BookingCard } from "../../components/BookingCard";
 import { NavBar } from "../../components/Navbar";
 import { TopSection } from "./topSection";
 
@@ -7,6 +8,6 @@ export function HomePage() {
   <div className="flex flex-col items-center overflow-x-hidden w-full h-full">
     <NavBar />
     <TopSection />
-    <p>This is home page</p>
+    <BookingCard />
   </div>);
 }
