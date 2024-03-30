@@ -7,17 +7,29 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
+const apollo_1 = require("@nestjs/apollo");
 const common_1 = require("@nestjs/common");
 const config_1 = require("@nestjs/config");
+const graphql_1 = require("@nestjs/graphql");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
+const components_module_1 = require("./components/components.module");
 const database_module_1 = require("./database/database.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [config_1.ConfigModule.forRoot(), database_module_1.DatabaseModule],
+        imports: [config_1.ConfigModule.forRoot(),
+            database_module_1.DatabaseModule,
+            graphql_1.GraphQLModule.forRoot({
+                playground: (process.env.NODE_ENV === "development" && true) || false,
+                debug: (process.env.NODE_ENV === "development" && true) || false,
+                driver: apollo_1.ApolloDriver,
+                autoSchemaFile: true,
+            }),
+            components_module_1.ComponentsModule,
+        ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
     })
