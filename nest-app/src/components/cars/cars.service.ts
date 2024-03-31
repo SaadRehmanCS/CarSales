@@ -12,7 +12,7 @@ export class CarService {
   public async getAllCars(): Promise<Car[]> {
     return await this.carRepository.find({}).catch((err) => {
       console.log(err);
-      throw new InternalServerErrorException();
+      throw new InternalServerErrorException(err);
     })
   }
 

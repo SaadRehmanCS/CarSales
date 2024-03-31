@@ -24,7 +24,7 @@ let CarService = class CarService {
     async getAllCars() {
         return await this.carRepository.find({}).catch((err) => {
             console.log(err);
-            throw new common_1.InternalServerErrorException();
+            throw new common_1.InternalServerErrorException(err);
         });
     }
     async insertCar(car) {

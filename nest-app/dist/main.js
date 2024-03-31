@@ -8,6 +8,7 @@ dotenv.config();
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
     app.useGlobalFilters(new core_1.BaseExceptionFilter());
+    app.enableCors();
     await app.listen(process.env.PORT || 9000);
 }
 bootstrap();
